@@ -1,0 +1,1 @@
+<template><h2>Detailed Ratio Analysis</h2></template>
