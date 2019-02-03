@@ -10,19 +10,6 @@
 //var Tabulator = require('tabulator-tables');
 import Tabulator from 'tabulator-tables';
 
-// $(document).ready(function(){
-//     // $('a[data-toggle="pill"]').on('shown.bs.pill', function(e){
-//     //     var currentTab = $(e.target).text(); // get current tab
-//     //     var LastTab = $(e.relatedTarget).text(); // get last tab
-//     //     console.log("Tabs changed")
-//     // });
-//     $('#myTab a').on('click', function (e) {
-//         e.preventDefault()
-//         //$(this).tab('show')
-//         console.log("Shown")
-//     })
-// });
-
 export default {
     name : 'FinancialTable',
     data () {
