@@ -15,7 +15,7 @@ import Backtester from './views/Backtester.vue'
 Vue.use(Router)
 
 const router = new Router({
-    mode : 'history',
+    //mode : 'history',
     routes: [{
         path: '/screener',
         component: Screener,
