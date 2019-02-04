@@ -18,16 +18,12 @@
             <p>
               <a
                 class="btn btn-secondary btn-sm mr-2" data-toggle="collapse" href="#devContribution" role="button" aria-expanded="false" aria-controls="devContribution">
-				Click to contryibute to development
-			</a>
+				        Click to contribute to development
+			        </a>
               <a
-                class="btn btn-secondary btn-sm"
-                type="button"
-                data-toggle="collapse"
-                data-target="#dataContribution"
-                aria-expanded="false"
-                aria-controls="dataContribution"
-              >Click to contribute data</a>
+                class="btn btn-secondary btn-sm" type="button" data-toggle="collapse" data-target="#dataContribution" aria-expanded="false" aria-controls="dataContribution">
+                Click to contribute data
+              </a>
             </p>
             <div class="collapse" id="devContribution">
               <div class="card card-body">
