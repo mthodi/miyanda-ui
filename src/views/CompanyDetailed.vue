@@ -1,27 +1,30 @@
 <template>
-  <div class="jumbotron">
-    <div class="loading" v-if="loading">
+  <div class="jumbotron mt-1 pt-0">
+    <!-- <div class="loading" v-if="loading">
       Loading...
     </div>
     <div v-if="error" class="error">
       {{ error }}
-    </div>
-    <div v-if="company" class="content">
+    </div> -->
+    <div v-if="company" class="content mt-0">
         <br>
         <div class="card bg-secondary">
         <div class="card-body" v-for="val in company" :key="val.shares">
           <h4 class="card-title">{{val.company_name}}</h4>
           <h6 class="card-subtitle mb-0 text-muted">{{val.exchange_name}} : {{val.ticker}}</h6>
-          <p class="card-text mb-3"><label>Market Cap :</label>{{val.shares}}</p>
-          <h3 class="card-title">567.00 MWK</h3><h6 class="card-subtitle">+0.87</h6>
+          <p class="card-text mb-3"><label>Market Cap : {{val.currency_symbol}}</label>&nbsp;{{val.market_cap | abbreviate }}</p>
+          <h3 class="card-title">{{val.price}} {{val.currency_symbol}}</h3>
+          <h6 class="card-subtitle">{{val.currency_symbol}}{{val.change}} &nbsp;&nbsp; {{val.percent_change}}%</h6>
         </div>
         </div>
-        <!-- <span v-for="val in company" :key="val.shares">
-            <h2>{{ val.ticker }}</h2> Listed On : {{val.exchange_name}}
-            Outstanding shares : {{ val.shares }}
-            Price : MWK 728
-        </span> -->
-         <Chart />
+        <div class="row mt-3">
+            <div class="col-sm-4 pr-0 pl-0 bg-white text-black">
+              <Chart />
+            </div>
+            <IncomeStatement />
+            <BalanceSheet />
+
+        </div>
         <CompanyFiancials />
        
     </div>
@@ -32,6 +35,8 @@
 
 import axios from 'axios';
 import CompanyFiancials from './CompanyFinancials.vue'
+import IncomeStatement from './IncomeStatement.vue'
+import BalanceSheet from './BalanceSheet.vue'
 import Chart from './EarningsChart.vue'
 import { API_URL } from '../_config'
 
@@ -60,7 +65,7 @@ export default {
       // replace `getPost` with your data fetching util / API wrapper
       //this.$route.params.id
       // TODO: escape data here
-    axios.get(API_URL + "/api/v1?id=" + this.$route.params.id + "&info=none")
+    axios.get(API_URL + "/api/v1/company/?ticker=" + this.$route.params.id + "&info=none")
     .then(response => {
       // JSON responses are automatically parsed.
       this.loading = false
@@ -75,7 +80,10 @@ export default {
   },
   components : {
       CompanyFiancials,
-      Chart
+      Chart,
+      IncomeStatement,
+      BalanceSheet
   }
 }
 </script>
+

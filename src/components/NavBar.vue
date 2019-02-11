@@ -11,13 +11,13 @@
                       <router-link class="nav-link" to="/">Home <span class="sr-only">(current)</span></router-link>
                     </li>
                     <li class="nav-item">
+                        <router-link class="nav-link" to="/screener">Screener</router-link>
+                    </li>
+                    <li class="nav-item">
                       <router-link class="nav-link" to="/valuation">Valuation</router-link>
                     </li>
                     <li class="nav-item">
                       <router-link class="nav-link" to="/ratios">Ratio Analysis</router-link>
-                    </li>
-                    <li class="nav-item">
-                        <router-link class="nav-link" to="/screener">Screener</router-link>
                     </li>
                     <li class="nav-item">
                       <router-link class="nav-link" to="/backtest">Backtest</router-link>

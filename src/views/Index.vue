@@ -1,5 +1,9 @@
 <template>
   <div class="intable mt-3 mb-3">
+    <p class="bg-secondary mb-0 text-center">
+          <!-- <small class="text-white"> -->
+            <em> Click on the ticker for detailed information about a company.</em></p>
+        
     <SortedTable :values="values" class="table table-hover">
       <thead>
         <tr>
@@ -32,14 +36,14 @@
       </thead>
       <tbody slot="body" slot-scope="sort">
         <tr v-for="value in sort.values" :key="value.close">
-          <td>{{ value.ticker }}</td>
+          <td> <router-link :to="'/company/'+ value.ticker">{{ value.ticker }}</router-link></td>
           <td>{{ value.company_name }}</td>
           <td>{{ value.sector }}</td>
-          <td>{{value.currency_symbol}}  {{ value.market_cap }}</td>
-          <td>{{value.currency_symbol}} {{ value.net_income }}</td>
+          <td>{{value.currency_symbol}}  {{ value.market_cap | abbreviate }}</td>
+          <td>{{value.currency_symbol}} {{ value.net_income | abbreviate }}</td>
           <td>{{value.currency_symbol}} {{ value.close }}</td>
           <td>{{ value.change }}</td>
-          <td>{{ value.volume }}</td>
+          <td>{{ value.volume | separator }}</td>
         </tr>
       </tbody>
     </SortedTable>

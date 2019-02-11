@@ -10,6 +10,7 @@ import Screener from './views/Screener.vue'
 import Valuation from './views/Valuation.vue'
 import About from './views/About.vue'
 import Backtester from './views/Backtester.vue'
+import Developer from './views/Developer.vue'
 //import FinacialTable from './views/FinancialTable.vue'
 
 Vue.use(Router)
@@ -40,6 +41,9 @@ const router = new Router({
     },{
         path: '/backtest',
         component: Backtester
+    },{
+        path: '/developer',
+        component: Developer
     }]
 })
 
