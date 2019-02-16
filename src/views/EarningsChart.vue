@@ -27,15 +27,16 @@
             labels: {
               formatter: function(val, index) {
                 var len = val.toString().length
+                var formatted = 0;
                  if (len < 7) {
-                  var formatted = val/ 1000;
+                   formatted = val/ 1000;
                   return formatted.toString() + " K";
                 }
                 if (len == 7) {
-                  var formatted = val/1000000;
+                  formatted = val/1000000;
                   return formatted.toString() + " Mln";
                 } if (len >= 10) {
-                  var formatted = val/1000000000;
+                  formatted = val/1000000000;
                   return formatted.toString() + " Bln";
                 }
               }

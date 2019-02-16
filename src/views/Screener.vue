@@ -244,7 +244,6 @@
 
 //var Tabulator = require('tabulator-tables');
 import Tabulator from 'tabulator-tables';
-import axios from 'axios';
 import { filters } from '../filters'
 import { API_URL } from '../_config'
 
