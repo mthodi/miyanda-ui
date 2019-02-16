@@ -62,10 +62,7 @@ export default {
     fetchData () {
       this.error = this.company = null
       this.loading = true
-      // replace `getPost` with your data fetching util / API wrapper
-      //this.$route.params.id
-      // TODO: escape data here
-    axios.get(API_URL + "/api/v1/company/?ticker=" + this.$route.params.id + "&info=none")
+      axios.get(API_URL + "/api/v1/company/?ticker=" + this.$route.params.id + "&info=none")
     .then(response => {
       // JSON responses are automatically parsed.
       this.loading = false
