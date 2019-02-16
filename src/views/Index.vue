@@ -1,7 +1,7 @@
 <template>
   <div class="intable mt-3 mb-3">
     <div class="loading" v-if="loading">Loading data ..</div>
-    <div class="error" v-if="error"> {{error}} </div>
+    <div class="error" v-if="error">{{error}}</div>
     <div v-if="values" class="mb-3">
       <p class="bg-secondary mb-0 text-center">
         <!-- <small class="text-white"> -->
@@ -65,29 +65,35 @@ export default {
   data() {
     return {
       values: [],
-      error : null,
-      loading : false
+      error: null,
+      loading: false
     };
   },
   // Fetches posts when the component is created.
   created() {
-    this.fetchData()
+    this.fetchData();
   },
-   methods: {
-    fetchData () {
-      this.error = this.values = null
-      this.loading = true
-      axios.get(API_URL)
-    .then(response => {
-      // JSON responses are automatically parsed.
-      this.loading = false
-      this.values = response.data
-      //console.log(response.data)
-    })
-    .catch(e => {
-        this.loading = false
-        this.error = JSON.parse([{"Error": "Something went wrong. Try reloading the page"}])
-    })
+  watch : {
+    '$route' : 'fetchData'
+  },
+  methods: {
+    fetchData() {
+      this.error = this.values = null;
+      this.loading = true;
+      axios
+        .get(API_URL)
+        .then(response => {
+          // JSON responses are automatically parsed.
+          this.loading = false;
+          this.values = response.data;
+          //console.log(response.data)
+        })
+        .catch(e => {
+          this.loading = false;
+          this.error = JSON.parse([
+            { Error: "Something went wrong. Try reloading the page" }
+          ]);
+        });
     }
   }
 };
